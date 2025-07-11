@@ -55,16 +55,6 @@ const menuItems = [
     ]
   },
   { 
-    label: 'Liens utiles', 
-    href: '/liens-utiles', 
-    dropdown: true,
-    items: [
-      { label: 'Sites gouvernementaux', href: '/liens-utiles/gouvernement' },
-      { label: 'Ambassades', href: '/liens-utiles/ambassades' },
-      { label: 'Organisations', href: '/liens-utiles/organisations' },
-    ]
-  },
-  { 
     label: 'Le Gabon', 
     href: '/gabon', 
     dropdown: true,

@@ -10,6 +10,7 @@ const secondaryItems = [
   { label: 'RETOURNER AU GABON', href: '/diaspora/retour-au-gabon' },
   { label: 'PROTECTION CONSULAIRE', href: '/protection-consulaire' },
   { label: 'ÉTAT CIVIL', href: '/services-publics/etat-civil' },
+  { label: 'LIENS UTILES', href: '/liens-utiles' },
 ];
 
 export function SecondaryNav() {
