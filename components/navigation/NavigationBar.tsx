@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Menu, X, GraduationCap } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
@@ -13,65 +13,73 @@ const menuItems = [
     dropdown: false 
   },
   { 
-    label: 'Services consulaires', 
-    href: '/services-consulaires', 
+    label: 'Le Consulat Général', 
+    href: '/consulat', 
     dropdown: true,
     items: [
-      { label: 'Inscription Consulaire', href: '/services-consulaires/inscription' },
-      { label: 'État Civil', href: '/services-consulaires/etat-civil' },
-      { label: 'Certificats', href: '/services-consulaires/certificats' },
-      { label: 'Passeports', href: '/services-consulaires/passeports' },
-      { label: 'Visas', href: '/services-consulaires/visas' },
+      { label: 'Présentation', href: '/consulat/presentation' },
+      { label: 'L\'équipe consulaire', href: '/consulat/equipe' },
+      { label: 'Histoire', href: '/consulat/histoire' },
+      { label: 'Missions', href: '/consulat/missions' },
     ]
   },
   { 
-    label: 'Démarches administratives', 
-    href: '/demarches-administratives', 
+    label: 'Services Publics', 
+    href: '/services-publics', 
     dropdown: true,
     items: [
-      { label: 'Mariages', href: '/demarches-administratives/mariages' },
-      { label: 'Légalisations', href: '/demarches-administratives/legalisations' },
-      { label: 'Procurations', href: '/demarches-administratives/procurations' },
-      { label: 'Notariat', href: '/demarches-administratives/notariat' },
+      { label: 'Inscription Consulaire', href: '/services-publics/inscription' },
+      { label: 'État Civil', href: '/services-publics/etat-civil' },
+      { label: 'Certificats', href: '/services-publics/certificats' },
+      { label: 'Mariages', href: '/services-publics/mariages' },
     ]
   },
   { 
-    label: 'Capsule', 
-    href: '/capsule', 
+    label: 'Accompagnement', 
+    href: '/accompagnement', 
     dropdown: true,
     items: [
-      { label: 'Vidéos explicatives', href: '/capsule/videos' },
-      { label: 'Infographies', href: '/capsule/infographies' },
-      { label: 'Documents téléchargeables', href: '/capsule/documents' },
-      { label: 'FAQ interactive', href: '/capsule/faq' },
-      { label: 'Quiz de sensibilisation', href: '/capsule/quiz' },
+      { label: 'Aide Sociale', href: '/accompagnement/aide-sociale' },
+      { label: 'Juridique', href: '/accompagnement/juridique' },
+      { label: 'Administratif', href: '/accompagnement/administratif' },
     ]
   },
   { 
-    label: 'Actualités', 
-    href: '/actualites', 
-    dropdown: false 
+    label: 'Diaspora', 
+    href: '/diaspora', 
+    dropdown: true,
+    items: [
+      { label: 'Venir en France', href: '/diaspora/venir-en-france' },
+      { label: 'Retourner au Gabon', href: '/diaspora/retour-au-gabon' },
+      { label: 'Communauté', href: '/diaspora/communaute' },
+    ]
   },
   { 
-    label: 'Contact', 
-    href: '/contact', 
-    dropdown: false 
+    label: 'Liens utiles', 
+    href: '/liens-utiles', 
+    dropdown: true,
+    items: [
+      { label: 'Sites gouvernementaux', href: '/liens-utiles/gouvernement' },
+      { label: 'Ambassades', href: '/liens-utiles/ambassades' },
+      { label: 'Organisations', href: '/liens-utiles/organisations' },
+    ]
+  },
+  { 
+    label: 'Le Gabon', 
+    href: '/gabon', 
+    dropdown: true,
+    items: [
+      { label: 'Découvrir le Gabon', href: '/gabon/decouvrir' },
+      { label: 'Culture', href: '/gabon/culture' },
+      { label: 'Économie', href: '/gabon/economie' },
+      { label: 'Tourisme', href: '/gabon/tourisme' },
+    ]
   },
 ];
 
 export function NavigationBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [isSticky, setIsSticky] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsSticky(window.scrollY > 100);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -87,9 +95,10 @@ export function NavigationBar() {
 
   return (
     <motion.nav 
-      className={`bg-white shadow-md sticky top-0 z-50 transition-all duration-300 ${
-        isSticky ? 'shadow-lg backdrop-blur-sm bg-white/95' : ''
-      }`}
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.1 }}
+      className="bg-white shadow-md sticky top-0 z-50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
@@ -105,7 +114,7 @@ export function NavigationBar() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-6">
+          <div className="hidden lg:flex items-center space-x-8">
             {menuItems.map((item) => (
               <div
                 key={item.label}
@@ -115,16 +124,9 @@ export function NavigationBar() {
               >
                 <Link
                   href={item.href}
-                  className={`flex items-center space-x-1 transition-colors duration-300 py-2 px-3 rounded-md font-medium ${
-                    item.label === 'Capsule' 
-                      ? 'text-consulate-yellow bg-consulate-yellow/10 hover:bg-consulate-yellow hover:text-black' 
-                      : 'text-gray-700 hover:text-consulate-blue hover:bg-gray-50'
-                  }`}
+                  className="flex items-center space-x-1 text-gray-700 hover:text-consulate-blue transition-colors duration-300 py-2 px-3 rounded-md hover:bg-gray-50"
                 >
-                  {item.label === 'Capsule' && (
-                    <GraduationCap className="h-4 w-4" />
-                  )}
-                  <span>{item.label}</span>
+                  <span className="font-medium">{item.label}</span>
                   {item.dropdown && (
                     <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${
                       activeDropdown === item.label ? 'rotate-180' : ''
@@ -158,12 +160,11 @@ export function NavigationBar() {
             ))}
           </div>
 
-          {/* Capsule Button - Prominent */}
+          {/* CTA Button */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Link href="/capsule">
-              <Button className="bg-consulate-yellow hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
-                <GraduationCap className="mr-2 h-5 w-5" />
-                Capsule
+            <Link href="/contact">
+              <Button className="bg-consulate-yellow hover:bg-yellow-500 text-black font-semibold px-6 py-2 rounded-lg transition-all duration-300 transform hover:scale-105">
+                Nous Contacter
               </Button>
             </Link>
           </div>
@@ -191,20 +192,20 @@ export function NavigationBar() {
                 <div key={item.label} className="py-2">
                   <Link
                     href={item.href}
-                    className={`block px-4 py-2 transition-colors duration-200 ${
-                      item.label === 'Capsule' 
-                        ? 'text-consulate-yellow bg-consulate-yellow/10 hover:bg-consulate-yellow hover:text-black font-semibold' 
-                        : 'text-gray-700 hover:text-consulate-blue hover:bg-gray-50'
-                    }`}
+                    className="block px-4 py-2 text-gray-700 hover:text-consulate-blue hover:bg-gray-50 transition-colors duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    {item.label === 'Capsule' && (
-                      <GraduationCap className="inline h-4 w-4 mr-2" />
-                    )}
                     {item.label}
                   </Link>
                 </div>
               ))}
+              <div className="px-4 py-2">
+                <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+                  <Button className="w-full bg-consulate-yellow hover:bg-yellow-500 text-black font-semibold">
+                    Nous Contacter
+                  </Button>
+                </Link>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
