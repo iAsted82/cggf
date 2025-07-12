@@ -172,8 +172,6 @@
   .btn-accent {
     @apply modern-button bg-gradient-to-r from-yellow-500 to-yellow-600 text-black;
     focus-ring-color: rgb(234 179 8 / 0.5);
-  }
-  }
 
   /* Navigation Styles */
   .nav-glass {
@@ -225,7 +223,6 @@
   .stagger-children > *:nth-child(3) { animation-delay: 0.2s; }
   .stagger-children > *:nth-child(4) { animation-delay: 0.3s; }
   .stagger-children > *:nth-child(5) { animation-delay: 0.4s; }
-}
 
 @keyframes slideUp {
   from {
