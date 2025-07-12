@@ -201,14 +201,14 @@ export function HorizontalLayoutSection() {
         <div className="hidden md:block lg:hidden w-[90%] mx-auto px-6">
           <div className="grid grid-cols-12 gap-6 items-center min-h-[70vh]">
             {/* Vidéo à gauche - 4 colonnes */}
-            <div className="col-span-6 flex justify-center">
+            <div className="col-span-6 flex justify-center items-center h-full">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="w-full max-w-sm"
+                className="w-full max-w-sm h-full flex items-center"
               >
-                <div className="relative w-full aspect-[9/16] h-full bg-gradient-to-br from-consulate-blue to-consulate-green rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <div className="relative w-full h-[400px] bg-gradient-to-br from-consulate-blue to-consulate-green rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
                   <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
                     <div className="text-center text-white">
                       <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto backdrop-blur-sm hover:bg-white/30 transition-colors duration-300 cursor-pointer">
@@ -223,12 +223,12 @@ export function HorizontalLayoutSection() {
             </div>
 
             {/* Texte à droite - 6 colonnes */}
-            <div className="col-span-6">
+            <div className="col-span-6 h-full">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
-                className="space-y-6 h-full flex flex-col justify-center"
+                className="space-y-6 h-[400px] flex flex-col justify-center"
               >
                 <div className="space-y-4">
                   <h2 className="text-4xl font-bold text-consulate-blue leading-tight">
@@ -284,14 +284,14 @@ export function HorizontalLayoutSection() {
         <div className="hidden lg:block max-w-7xl mx-auto px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[80vh]">
             {/* Vidéo à gauche */}
-            <div className="lg:col-span-6 flex justify-center">
+            <div className="lg:col-span-6 flex justify-center items-center h-full">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="w-full max-w-sm lg:max-w-xs xl:max-w-sm"
+                className="w-full max-w-sm lg:max-w-xs xl:max-w-sm h-full flex items-center"
               >
-                <div className="relative w-full aspect-[9/16] h-full bg-gradient-to-br from-consulate-blue to-consulate-green rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <div className="relative w-full h-[500px] bg-gradient-to-br from-consulate-blue to-consulate-green rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
                   <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
                     <div className="text-center text-white">
                       <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto backdrop-blur-sm hover:bg-white/30 transition-colors duration-300 cursor-pointer">
@@ -306,12 +306,12 @@ export function HorizontalLayoutSection() {
             </div>
 
             {/* Texte à droite */}
-            <div className="lg:col-span-6">
+            <div className="lg:col-span-6 h-full">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
-                className="space-y-8 h-full flex flex-col justify-center"
+                className="space-y-8 h-[500px] flex flex-col justify-center"
               >
                 <div className="space-y-6">
                   <h2 className="text-5xl xl:text-6xl font-bold text-consulate-blue leading-tight">
