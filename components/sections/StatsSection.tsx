@@ -26,9 +26,7 @@ const stats = [
     suffix: '+',
     label: 'Documents Traités',
     description: 'Services consulaires fournis cette année',
-    color
-  }
-]: 'text-green-500'
+    color: 'text-green-500'
   },
   {
     icon: Clock,
