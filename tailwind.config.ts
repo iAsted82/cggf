@@ -54,14 +54,13 @@ const config: Config = {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
-        // Custom colors for the consulate
-        'consulate-blue': '#003F7F',
-        'consulate-blue-light': '#0056b3',
-        'consulate-yellow': '#FFD700',
-        'consulate-green': '#009E49',
-        'text-dark': '#333333',
-        'text-light': '#666666',
-        'bg-light': '#f8f9fa',
+        // Modern Administrative Colors
+        'steel': '#2C3E50',
+        'steel-light': '#34495E',
+        'pearl': '#F5F6FA',
+        'pearl-light': '#FFFFFF',
+        'accent-blue': '#3498DB',
+        'accent-blue-dark': '#2980B9',
         chart: {
           '1': 'hsl(var(--chart-1))',
           '2': 'hsl(var(--chart-2))',

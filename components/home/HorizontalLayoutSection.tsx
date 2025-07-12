@@ -12,11 +12,11 @@ export function HorizontalLayoutSection() {
   const opacity = useTransform(scrollY, [0, 300], [1, 0.8]);
 
   return (
-    <section className="relative py-12 md:py-16 lg:py-20 bg-gradient-to-br from-consulate-blue/5 to-consulate-green/5 overflow-hidden">
+    <section className="relative section-spacing pearl-gradient overflow-hidden">
       {/* Animated Background Elements */}
       <motion.div
         style={{ y }}
-        className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-consulate-yellow/10 to-consulate-green/10 rounded-full blur-3xl"
+        className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-accent/10 to-primary/10 rounded-full blur-3xl"
         animate={{
           scale: [1, 1.2, 1],
           rotate: [0, 180, 360],
@@ -29,7 +29,7 @@ export function HorizontalLayoutSection() {
       />
       <motion.div
         style={{ y: useTransform(scrollY, [0, 500], [0, -100]) }}
-        className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-br from-consulate-blue/10 to-consulate-yellow/10 rounded-full blur-3xl"
+        className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl"
         animate={{
           scale: [1.2, 1, 1.2],
           rotate: [360, 180, 0],
@@ -49,10 +49,10 @@ export function HorizontalLayoutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center space-y-8"
+            className="text-center content-spacing"
           >
-            <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-consulate-blue leading-tight">
+            <div className="space-y-8">
+              <h2 className="text-section text-primary leading-tight">
                 <motion.span
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -62,7 +62,7 @@ export function HorizontalLayoutSection() {
                   Services Consulaires
                 </motion.span>
                 <motion.span 
-                  className="block text-consulate-yellow"
+                  className="block text-accent font-light"
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4, duration: 0.6 }}
@@ -77,7 +77,7 @@ export function HorizontalLayoutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
                 viewport={{ once: true }}
-                className="text-lg text-gray-600 leading-relaxed"
+                className="text-body-large"
               >
                 Découvrez nos services consulaires digitalisés pour une expérience 
                 simplifiée et efficace au service de la diaspora gabonaise.
@@ -90,14 +90,14 @@ export function HorizontalLayoutSection() {
                 viewport={{ once: true }}
                 whileHover={{ 
                   scale: 1.02,
-                  boxShadow: "0 25px 50px rgba(0, 63, 127, 0.15)"
+                  boxShadow: "0 25px 50px rgba(44, 62, 80, 0.15)"
                 }}
-                className="bg-white/70 backdrop-blur-lg rounded-xl p-6 border border-white/20 shadow-lg hover:shadow-2xl transition-all duration-500"
+                className="modern-card p-6 hover:shadow-2xl transition-all duration-500"
               >
-                <p className="text-base text-consulate-blue font-medium mb-3">
+                <p className="text-base text-primary font-medium mb-3">
                   "Notre engagement : servir avec excellence"
                 </p>
-                <p className="text-gray-700 leading-relaxed text-sm">
+                <p className="text-muted-foreground leading-relaxed text-sm">
                   Le Consulat Général du Gabon en France s'engage à fournir des services 
                   consulaires de qualité, accessibles et adaptés aux besoins de notre 
                   communauté.

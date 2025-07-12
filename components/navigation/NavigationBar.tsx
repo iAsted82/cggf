@@ -102,25 +102,25 @@ export function NavigationBar() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 }}
-      className="bg-white shadow-md sticky top-0 z-50"
+      className="nav-glass sticky top-0 z-50 transition-all duration-300"
     >
       <div className="w-full">
         {/* Mobile Layout (max-width: 767px) */}
         <div className="block md:hidden w-[95%] mx-auto px-4 py-3">
           <div className="flex justify-between items-center">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-consulate-blue to-consulate-green rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 steel-gradient rounded-lg flex items-center justify-center shadow-lg">
                 <span className="text-white font-bold text-sm">CG</span>
               </div>
               <div>
-                <h1 className="text-base font-bold text-consulate-blue">Consulat Général</h1>
-                <p className="text-xs text-gray-600">République Gabonaise</p>
+                <h1 className="text-base font-semibold text-primary">Consulat Général</h1>
+                <p className="text-xs text-muted-foreground">République Gabonaise</p>
               </div>
             </Link>
 
             <button
               onClick={toggleMenu}
-              className="p-2 text-gray-700 hover:text-consulate-blue transition-colors duration-300 rounded-lg hover:bg-gray-100"
+              className="p-2 text-primary hover:text-accent transition-colors duration-300 rounded-lg hover:bg-secondary/50"
               aria-label="Menu"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -135,14 +135,14 @@ export function NavigationBar() {
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3 }}
-                className="bg-white border-t border-gray-200 mt-3 pt-4 pb-2 rounded-b-lg shadow-lg"
+                className="modern-card border-t border-border mt-3 pt-4 pb-2 rounded-b-xl"
               >
                 {menuItems.map((item) => (
                   <div key={item.label} className="mb-2">
                     <div className="flex items-center justify-between">
                       <Link
                         href={item.href}
-                        className="block px-4 py-3 text-gray-700 hover:text-consulate-blue hover:bg-gray-50 transition-colors duration-200 rounded-lg flex-1"
+                        className="block px-4 py-3 text-foreground hover:text-accent hover:bg-secondary/50 transition-colors duration-200 rounded-lg flex-1"
                         onClick={() => !item.dropdown && setIsMenuOpen(false)}
                       >
                         {item.label}
@@ -150,7 +150,7 @@ export function NavigationBar() {
                       {item.dropdown && (
                         <button
                           onClick={() => handleMobileDropdownToggle(item.label)}
-                          className="p-3 text-gray-500 hover:text-consulate-blue"
+                          className="ml-4 mt-2 border-l-2 border-border pl-4"
                         >
                           <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${
                             activeDropdown === item.label ? 'rotate-180' : ''
@@ -238,7 +238,7 @@ export function NavigationBar() {
                             <Link
                               key={subItem.label}
                               href={subItem.href}
-                              className="block px-3 py-1 text-sm text-gray-600 hover:text-consulate-blue hover:bg-gray-50 transition-colors duration-200 rounded"
+                              className="block px-4 py-2 text-sm text-muted-foreground hover:text-accent hover:bg-secondary/50 transition-colors duration-200 rounded"
                               onClick={() => setIsMenuOpen(false)}
                             >
                               {subItem.label}
@@ -248,9 +248,9 @@ export function NavigationBar() {
                       )}
                     </div>
                   ))}
-                </div>
+                  <div className="px-4 py-2 mt-4 border-t border-border">
                 <div className="mt-6 pt-4 border-t border-gray-100 text-center">
-                  <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+                      <Button className="w-full modern-button text-white font-semibold py-3">
                     <Button className="bg-consulate-yellow hover:bg-yellow-500 text-black font-semibold px-8 py-2 rounded-lg">
                       Nous Contacter
                     </Button>
