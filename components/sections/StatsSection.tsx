@@ -10,6 +10,7 @@ import { motion } from 'framer-motion';
 import { Users, FileText, Clock, Star } from 'lucide-react';
 import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 import { PremiumCard } from '@/components/ui/PremiumCard';
+import { cn } from '@/lib/utils';
 
 const stats = [
   {
