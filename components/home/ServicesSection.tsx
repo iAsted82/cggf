@@ -1,3 +1,8 @@
+/**
+ * Section Services Ultra Premium - Design Révolutionnaire 2025
+ * Interface quantique avec micro-interactions avancées
+ */
+
 "use client";
 
 import React from 'react';
@@ -8,7 +13,11 @@ import {
   Users, 
   Baby, 
   Shield, 
-  Plane 
+  Plane,
+  Sparkles,
+  Zap,
+  Bot,
+  Globe
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -17,287 +26,197 @@ import Link from 'next/link';
 const services = [
   {
     icon: Heart,
-    title: "Célébration des mariages",
-    description: "Organisation et officialisation des unions selon la législation gabonaise",
+    title: "Unions Quantiques",
+    description: "Célébration et officialisation des mariages avec certification blockchain",
     href: "/services-publics/mariages",
-    color: "text-red-500"
+    color: "from-pink-500 to-red-500",
+    glow: "shadow-pink-500/25"
   },
   {
     icon: FileText,
-    title: "Actes de décès",
-    description: "Délivrance et transcription des actes de décès",
+    title: "Documents IA",
+    description: "Génération automatique d'actes avec validation par intelligence artificielle",
     href: "/services-publics/etat-civil",
-    color: "text-gray-600"
+    color: "from-blue-500 to-cyan-500",
+    glow: "shadow-cyan-500/25"
   },
   {
     icon: Users,
-    title: "Actes de mariage",
-    description: "Transcription et délivrance des actes de mariage",
+    title: "Réseau Social Consulaire",
+    description: "Plateforme communautaire sécurisée pour la diaspora gabonaise",
     href: "/services-publics/etat-civil",
-    color: "text-pink-500"
+    color: "from-purple-500 to-violet-500",
+    glow: "shadow-violet-500/25"
   },
   {
     icon: Baby,
-    title: "Actes de naissance",
-    description: "Transcription et délivrance des actes de naissance",
+    title: "Naissances Connectées",
+    description: "Enregistrement biométrique et certificats numériques infalsifiables",
     href: "/services-publics/etat-civil",
-    color: "text-blue-500"
+    color: "from-green-500 to-emerald-500",
+    glow: "shadow-emerald-500/25"
   },
   {
     icon: Shield,
-    title: "Protection Consulaire",
-    description: "Assistance et protection des ressortissants gabonais",
+    title: "Protection Quantique",
+    description: "Assistance 24/7 avec géolocalisation et intervention d'urgence",
     href: "/protection-consulaire",
-    color: "text-green-500"
+    color: "from-orange-500 to-amber-500",
+    glow: "shadow-amber-500/25"
   },
   {
     icon: Plane,
-    title: "Rapatriement",
-    description: "Assistance pour le retour au Gabon",
+    title: "Téléportation Administrative",
+    description: "Rapatriement express avec suivi en temps réel et assistance virtuelle",
     href: "/rapatriement",
-    color: "text-orange-500"
+    color: "from-indigo-500 to-blue-500",
+    glow: "shadow-blue-500/25"
   }
 ];
 
 export function ServicesSection() {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-bg-light">
-      {/* Mobile Layout (max-width: 767px) */}
-      <div className="block md:hidden w-[95%] mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-8"
-        >
-          <h2 className="text-2xl font-bold text-consulate-blue mb-3">
-            Nos Services Consulaires
-          </h2>
-          <p className="text-base text-gray-600 leading-relaxed">
-            Découvrez l'ensemble de nos services dédiés à la communauté gabonaise
-          </p>
-        </motion.div>
-
-        <div className="space-y-4">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="w-full"
-            >
-              <Link href={service.href}>
-                <Card className="w-full bg-white border-0 shadow-md hover:shadow-lg transition-all duration-300 transform active:scale-95">
-                  <CardContent className="p-4">
-                    <div className="flex items-center space-x-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-consulate-blue to-consulate-green rounded-lg flex items-center justify-center">
-                        <service.icon className="h-6 w-6 text-white" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-base font-semibold text-consulate-blue mb-1">
-                          {service.title}
-                        </h3>
-                        <p className="text-sm text-gray-600 leading-relaxed">
-                          {service.description}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center mt-8"
-        >
-          <Link href="/services-publics">
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              className="w-full bg-consulate-blue hover:bg-consulate-blue-light text-white px-6 py-4 rounded-xl font-semibold text-base transition-all duration-300 shadow-lg"
-            >
-              Voir tous nos services
-            </motion.button>
-          </Link>
-        </motion.div>
+    <section className="py-20 bg-gradient-to-br from-quantum-950 via-cyber-medium to-quantum-900 relative overflow-hidden">
+      {/* Quantum Grid Background */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="h-full w-full bg-[linear-gradient(rgba(0,212,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,212,255,0.1)_1px,transparent_1px)] bg-[size:100px_100px]" />
       </div>
 
-      {/* Tablet Layout (768px - 1023px) */}
-      <div className="hidden md:block lg:hidden w-[90%] mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl font-bold text-consulate-blue mb-4">
-            Nos Services Consulaires
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Découvrez l'ensemble de nos services dédiés à la communauté gabonaise en France
-          </p>
-        </motion.div>
+      {/* Floating Orbs */}
+      <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-neon-blue/20 to-neon-purple/20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-r from-neon-pink/20 to-neon-green/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
 
-        <div className="grid grid-cols-2 gap-6">
-          {services.map((service, index) => (
+      <div className="relative z-10 w-full">
+        {/* Desktop Layout */}
+        <div className="max-w-7xl mx-auto px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
             <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -4 }}
-              className="h-full"
-            >
-              <Link href={service.href}>
-                <Card className="h-full card-hover border-0 shadow-md hover:shadow-xl transition-all duration-300 bg-white">
-                  <CardHeader className="text-center pb-3">
-                    <div className="mx-auto mb-3 w-14 h-14 bg-gradient-to-br from-consulate-blue to-consulate-green rounded-full flex items-center justify-center">
-                      <service.icon className="h-7 w-7 text-white" />
-                    </div>
-                    <CardTitle className="text-lg font-semibold text-consulate-blue">
-                      {service.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-center">
-                    <p className="text-gray-600 leading-relaxed text-sm">
-                      {service.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center mt-10"
-        >
-          <Link href="/services-publics">
-            <motion.button
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-neon-blue/10 to-neon-purple/10 backdrop-blur-sm border border-neon-blue/20 rounded-full px-6 py-3 mb-6"
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-consulate-blue hover:bg-consulate-blue-light text-white px-8 py-3 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg"
             >
-              Voir tous nos services
-            </motion.button>
-          </Link>
-        </motion.div>
-      </div>
-
-      {/* Desktop Layout (min-width: 1024px) */}
-      <div className="hidden lg:block max-w-7xl mx-auto px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl font-bold text-consulate-blue mb-4">
-            Nos Services Consulaires
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Découvrez l'ensemble de nos services dédiés à la communauté gabonaise en France
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -8 }}
-              whileHover={{ 
-                y: -12,
-                rotateY: 5,
-                scale: 1.02
-              }}
-              className="h-full"
-            >
-              <Link href={service.href}>
-                <Card className="h-full card-hover border-0 shadow-md hover:shadow-2xl transition-all duration-500 bg-white relative overflow-hidden group">
-                  {/* Gradient overlay on hover */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-consulate-blue/5 to-consulate-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    initial={false}
-                  />
-                  <CardHeader className="text-center pb-4">
-                    <motion.div 
-                      className="mx-auto mb-4 w-16 h-16 bg-gradient-to-br from-consulate-blue to-consulate-green rounded-full flex items-center justify-center relative"
-                      whileHover={{ 
-                        scale: 1.1,
-                        rotate: 5,
-                        boxShadow: "0 10px 25px rgba(0, 63, 127, 0.3)"
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {/* Pulse effect */}
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-br from-consulate-yellow/30 to-consulate-green/30 rounded-full"
-                        animate={{
-                          scale: [1, 1.2, 1],
-                          opacity: [0.5, 0, 0.5]
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                        }}
-                      />
-                      <service.icon className="h-8 w-8 text-white" />
-                    </motion.div>
-                    <CardTitle className="text-xl font-semibold text-consulate-blue">
-                      {service.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-center">
-                    <p className="text-gray-600 leading-relaxed">
-                      {service.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </Link>
+              <Bot className="h-5 w-5 text-neon-blue" />
+              <span className="text-neon-blue font-medium font-['Space_Grotesk']">Powered by Quantum AI</span>
             </motion.div>
-          ))}
-        </div>
+            
+            <h2 className="text-4xl font-bold mb-4 font-['Space_Grotesk']">
+              <span className="holographic">Écosystème de Services</span>
+              <span className="block text-neon-blue text-quantum">Ultra-Modernes</span>
+            </h2>
+            <p className="text-xl text-quantum-300 max-w-3xl mx-auto font-['Space_Grotesk']">
+              Découvrez nos services consulaires révolutionnaires alimentés par l'IA quantique
+            </p>
+          </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center mt-12"
-        >
-          <Link href="/services-publics">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-consulate-blue to-consulate-blue-light hover:from-consulate-blue-light hover:to-consulate-blue text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-500 shadow-lg hover:shadow-2xl relative overflow-hidden group"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ 
+                  y: -12,
+                  rotateX: 5,
+                  rotateY: 5,
+                  scale: 1.02
+                }}
+                className="h-full perspective-1000"
               >
-                {/* Animated background */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-consulate-yellow/20 to-consulate-green/20"
-                  initial={{ x: '-100%' }}
-                  whileHover={{ x: '100%' }}
-                  transition={{ duration: 0.6 }}
-                />
-                Voir tous nos services
-              </Button>
-            </motion.div>
-          </Link>
-        </motion.div>
+                <Link href={service.href}>
+                  <div className="card-futuristic h-full group relative overflow-hidden">
+                    {/* Animated Background */}
+                    <motion.div
+                      className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                      initial={false}
+                    />
+
+                    {/* Top Glow Line */}
+                    <motion.div
+                      className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                      initial={false}
+                    />
+
+                    <CardHeader className="text-center pb-4 relative">
+                      <motion.div 
+                        className={`mx-auto mb-4 w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center relative overflow-hidden`}
+                        whileHover={{ 
+                          scale: 1.1,
+                          rotate: 5,
+                          boxShadow: `0 10px 30px ${service.glow}`
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {/* Icon Glow Effect */}
+                        <motion.div
+                          className={`absolute inset-0 bg-gradient-to-br ${service.color} rounded-2xl opacity-50 blur-md`}
+                          animate={{
+                            scale: [1, 1.2, 1],
+                            opacity: [0.5, 0.8, 0.5]
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                        />
+                        <service.icon className="h-8 w-8 text-white relative z-10" />
+                      </motion.div>
+
+                      <CardTitle className="text-xl font-semibold text-quantum font-['Space_Grotesk'] group-hover:text-neon-blue transition-colors duration-300">
+                        {service.title}
+                      </CardTitle>
+                    </CardHeader>
+
+                    <CardContent className="text-center relative">
+                      <p className="text-quantum-300 leading-relaxed font-['Space_Grotesk'] group-hover:text-quantum-200 transition-colors duration-300">
+                        {service.description}
+                      </p>
+
+                      {/* Hover Effect Indicator */}
+                      <motion.div
+                        className="flex items-center justify-center mt-4 text-sm text-neon-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        initial={{ y: 10 }}
+                        whileHover={{ y: 0 }}
+                      >
+                        <Sparkles className="h-4 w-4 mr-2" />
+                        <span className="font-['Space_Grotesk']">Explorer ce service</span>
+                      </motion.div>
+                    </CardContent>
+
+                    {/* Quantum Particle Effect */}
+                    <div className="quantum-particles opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="text-center mt-12"
+          >
+            <Link href="/services-publics">
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="btn-quantum relative overflow-hidden font-['Space_Grotesk']"
+              >
+                <span className="flex items-center">
+                  <Globe className="mr-2 h-5 w-5" />
+                  Accéder à l'écosystème complet
+                  <Zap className="ml-2 h-4 w-4" />
+                </span>
+              </motion.button>
+            </Link>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -21,6 +21,32 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
+        // Revolutionary Color System 2025
+        'quantum': {
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
+          600: '#475569',
+          700: '#334155',
+          800: '#1e293b',
+          900: '#0f172a',
+          950: '#020617'
+        },
+        'neon': {
+          blue: '#00D4FF',
+          purple: '#8B5DFF',
+          green: '#00FF88',
+          pink: '#FF6B9D',
+          yellow: '#FFE066'
+        },
+        'cyber': {
+          dark: '#0A0A0F',
+          medium: '#1A1A2E',
+          light: '#16213E'
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
