@@ -231,3 +231,59 @@
   outline: none;
   box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.5);
 }
+
+/* Advanced Hover Effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 63, 127, 0.15);
+}
+
+/* Magnetic Button Effect */
+.magnetic-button {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.magnetic-button:hover {
+  transform: scale(1.05) translateY(-2px);
+}
+
+/* Premium Gradient Text */
+.gradient-text-premium {
+  background: linear-gradient(135deg, #003F7F 0%, #FFD700 50%, #009E49 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite;
+}
+
+/* Smooth Reveal Animation */
+.reveal-up {
+  animation: revealUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced Glassmorphism */
+.glass-ultra {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(40px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 8px 32px rgba(0, 63, 127, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
