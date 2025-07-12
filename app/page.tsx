@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { HeroSection } from '@/components/home/HeroSection';
+import { ThreeColumnSection } from '@/components/home/ThreeColumnSection';
 import { ServicesSection } from '@/components/home/ServicesSection';
 import { DigitalCardSection } from '@/components/home/DigitalCardSection';
 import { EventsSection } from '@/components/home/EventsSection';
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <HeroSection />
+      <ThreeColumnSection />
       <ServicesSection />
       <DigitalCardSection />
       <EventsSection />
