@@ -97,18 +97,18 @@ export function ModernServicesGrid() {
           className="text-center content-spacing mb-16"
         >
           <motion.h2 
-            className="text-section text-primary mb-6"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
             Services Consulaires
-            <span className="block font-light text-accent">Nouvelle Génération</span>
+            <span className="block font-semibold text-blue-600">Nouvelle Génération</span>
           </motion.h2>
           
           <motion.p
-            className="text-body-large max-w-3xl mx-auto"
+            className="text-lg md:text-xl leading-[1.7] text-gray-700 max-w-3xl mx-auto text-center font-medium"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -139,10 +139,10 @@ export function ModernServicesGrid() {
                     </div>
                     
                     <div>
-                      <CardTitle className="text-xl text-primary group-hover:text-accent transition-colors">
+                      <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
                         {service.title}
                       </CardTitle>
-                      <p className="text-muted-foreground mt-2 leading-relaxed">
+                      <p className="text-gray-600 mt-2 leading-[1.6] font-medium">
                         {service.description}
                       </p>
                     </div>
@@ -153,30 +153,29 @@ export function ModernServicesGrid() {
                     <div className="space-y-2">
                       {service.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center space-x-2 text-sm">
-                          <div className="w-1.5 h-1.5 rounded-full bg-accent"></div>
-                          <span className="text-muted-foreground">{feature}</span>
+                          <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                          <span className="text-gray-700 font-medium">{feature}</span>
                         </div>
                       ))}
                     </div>
                     
                     {/* Price & Duration */}
-                    <div className="flex items-center justify-between pt-4 border-t border-border">
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-200">
                       <div className="flex items-center space-x-4">
                         <div className="flex items-center space-x-1">
                           <Euro className="h-4 w-4 text-emerald-500" />
-                          <span className="font-medium text-primary">{service.price}</span>
+                          <span className="font-bold text-gray-900">{service.price}</span>
                         </div>
                         <div className="flex items-center space-x-1">
                           <Clock className="h-4 w-4 text-amber-500" />
-                          <span className="text-sm text-muted-foreground">{service.duration}</span>
+                          <span className="text-sm text-gray-600 font-medium">{service.duration}</span>
                         </div>
                       </div>
                     </div>
                     
                     {/* CTA */}
                     <Button 
-                      className="w-full modern-button group-hover:shadow-lg transition-all duration-300"
-                      variant="outline"
+                      className="w-full btn-primary min-h-[48px] text-base font-semibold rounded-xl transition-all duration-300 group-hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500/50"
                     >
                       <span>Accéder au service</span>
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -196,11 +195,11 @@ export function ModernServicesGrid() {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <p className="text-muted-foreground mb-6">
+          <p className="text-gray-600 mb-6 text-lg font-medium">
             Vous ne trouvez pas le service recherché ?
           </p>
           <Link href="/contact">
-            <Button className="modern-button text-white px-8 py-3">
+            <Button className="btn-primary min-h-[52px] px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-500/50">
               Contacter notre équipe
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>

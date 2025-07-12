@@ -40,13 +40,13 @@ export function ModernHeroSection() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-hero text-white leading-tight"
+                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight"
               >
                 Excellence
-                <span className="block font-light text-white/90">
+                <span className="block font-semibold text-white">
                   Consulaire
                 </span>
-                <span className="block text-accent font-medium">
+                <span className="block text-yellow-400 font-bold">
                   Modernisée
                 </span>
               </motion.h1>
@@ -56,7 +56,8 @@ export function ModernHeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-body-large text-white/80 max-w-2xl"
+                className="text-lg md:text-xl leading-[1.7] text-white max-w-2xl font-medium"
+                style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}
               >
                 Une expérience consulaire repensée pour la diaspora gabonaise en France. 
                 Services digitaux, procédures simplifiées, accompagnement personnalisé.
@@ -70,15 +71,14 @@ export function ModernHeroSection() {
                 className="flex flex-col sm:flex-row gap-4"
               >
                 <Link href="/services-publics/inscription">
-                  <Button className="modern-button bg-white text-primary hover:bg-white/90 text-lg px-8 py-4 group">
+                  <Button className="btn-accent min-h-[56px] px-8 py-4 text-lg font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:scale-105 focus:outline-none focus:ring-4 focus:ring-yellow-400/50 group">
                     Commencer maintenant
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </Link>
                 <Link href="/services-publics">
                   <Button 
-                    variant="outline" 
-                    className="border-white/30 text-white hover:bg-white/10 hover:border-white text-lg px-8 py-4 backdrop-blur-sm"
+                    className="btn-secondary min-h-[56px] px-8 py-4 text-lg font-semibold rounded-xl bg-white/10 border-2 border-white text-white backdrop-blur-sm hover:bg-white/20 hover:border-white transition-all duration-300 transform hover:scale-105 focus:scale-105 focus:outline-none focus:ring-4 focus:ring-white/50"
                   >
                     Découvrir nos services
                   </Button>
@@ -90,19 +90,19 @@ export function ModernHeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1 }}
-                className="grid grid-cols-3 gap-8 pt-8 border-t border-white/20"
+                className="grid grid-cols-3 gap-8 pt-8 border-t border-white/30"
               >
                 <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-light text-white mb-1">15K+</div>
-                  <div className="text-sm text-white/70">Ressortissants</div>
+                  <div className="text-2xl md:text-3xl font-bold text-white mb-1" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>15K+</div>
+                  <div className="text-sm text-white font-medium" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>Ressortissants</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-light text-white mb-1">24/7</div>
-                  <div className="text-sm text-white/70">Support</div>
+                  <div className="text-2xl md:text-3xl font-bold text-white mb-1" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>24/7</div>
+                  <div className="text-sm text-white font-medium" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>Support</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-light text-white mb-1">98%</div>
-                  <div className="text-sm text-white/70">Satisfaction</div>
+                  <div className="text-2xl md:text-3xl font-bold text-white mb-1" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>98%</div>
+                  <div className="text-sm text-white font-medium" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>Satisfaction</div>
                 </div>
               </motion.div>
             </motion.div>
