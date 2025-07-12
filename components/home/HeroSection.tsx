@@ -15,12 +15,39 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-black/30"></div>
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Main Content Container */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-screen">
+        
+        {/* Left Video Block */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="hidden lg:block lg:col-span-2"
+        >
+          <div className="glassmorphism rounded-2xl p-4 h-96">
+            <div className="bg-black/20 rounded-xl h-full flex items-center justify-center">
+              <div className="text-center text-white/70">
+                <div className="w-12 h-12 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+                <p className="text-sm font-medium">Vidéo 1</p>
+                <p className="text-xs opacity-75">Plan vertical</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Central Content */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          className="lg:col-span-8 text-center"
+        >
+        <motion.div
           className="glassmorphism rounded-3xl p-8 md:p-12 max-w-4xl mx-auto"
         >
           <motion.h1
@@ -82,6 +109,30 @@ export function HeroSection() {
             </Link>
           </motion.div>
         </motion.div>
+        </motion.div>
+
+        {/* Right Video Block */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="hidden lg:block lg:col-span-2"
+        >
+          <div className="glassmorphism rounded-2xl p-4 h-96">
+            <div className="bg-black/20 rounded-xl h-full flex items-center justify-center">
+              <div className="text-center text-white/70">
+                <div className="w-12 h-12 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+                <p className="text-sm font-medium">Vidéo 2</p>
+                <p className="text-xs opacity-75">Plan vertical</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
       </div>
 
       {/* Floating Elements */}
