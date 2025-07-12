@@ -19,7 +19,7 @@ export function SecondaryNav() {
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
-      className="bg-consulate-blue text-white py-3"
+      className="bg-consulate-blue py-3"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap justify-center lg:justify-start items-center space-x-2 lg:space-x-8">
@@ -32,7 +32,8 @@ export function SecondaryNav() {
             >
               <Link
                 href={item.href}
-                className="text-sm font-medium hover:text-consulate-yellow transition-colors duration-300 py-2 px-3 rounded-md hover:bg-white/10"
+                className="text-sm font-semibold text-white hover:text-consulate-yellow transition-colors duration-300 py-2 px-3 rounded-md hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-consulate-yellow focus:ring-opacity-50"
+                style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}
               >
                 {item.label}
               </Link>

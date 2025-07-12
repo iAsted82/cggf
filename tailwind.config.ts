@@ -68,6 +68,11 @@ const config: Config = {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
+        // Couleurs officielles du Consulat Général du Gabon
+        'consulate-blue': '#003F7F',
+        'consulate-blue-light': '#1155A3',
+        'consulate-yellow': '#FFD700',
+        'consulate-green': '#009E49',
       },
       keyframes: {
         'accordion-down': {
