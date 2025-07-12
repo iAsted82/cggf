@@ -267,19 +267,19 @@ export function NavigationBar() {
         </div>
 
         {/* Desktop Layout (min-width: 1024px) */}
-        <div className="hidden lg:block max-w-7xl mx-auto px-8 py-4">
+        <div className="hidden lg:block max-w-full mx-auto px-4 py-2">
           <div className="flex justify-between items-center">
             <Link href="/" className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-consulate-blue to-consulate-green rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">CG</span>
+              <div className="w-10 h-10 bg-gradient-to-br from-consulate-blue to-consulate-green rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-lg">CG</span>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-consulate-blue">Consulat Général</h1>
-                <p className="text-sm text-gray-600">République Gabonaise</p>
+                <h1 className="text-lg font-bold text-consulate-blue whitespace-nowrap">Consulat Général</h1>
+                <p className="text-xs text-gray-600 whitespace-nowrap">République Gabonaise</p>
               </div>
             </Link>
 
-            <div className="flex items-center space-x-8">
+            <div className="flex items-center space-x-4">
               {menuItems.map((item) => (
                 <div
                   key={item.label}
@@ -289,9 +289,9 @@ export function NavigationBar() {
                 >
                   <Link
                     href={item.href}
-                    className="flex items-center space-x-1 text-gray-700 hover:text-consulate-blue transition-colors duration-300 py-2 px-3 rounded-md hover:bg-gray-50"
+                    className="flex items-center space-x-1 text-gray-700 hover:text-consulate-blue transition-colors duration-300 py-1 px-2 rounded-md hover:bg-gray-50 whitespace-nowrap"
                   >
-                    <span className="font-medium">{item.label}</span>
+                    <span className="font-medium text-sm">{item.label}</span>
                     {item.dropdown && (
                       <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${
                         activeDropdown === item.label ? 'rotate-180' : ''
@@ -306,7 +306,7 @@ export function NavigationBar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-1 w-64 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-50"
+                        className="absolute top-full left-0 mt-1 w-56 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-50"
                       >
                         {item.items?.map((subItem) => (
                           <Link
