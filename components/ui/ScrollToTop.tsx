@@ -6,14 +6,16 @@ import { ArrowUp } from 'lucide-react';
 
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      const scrolled = document.documentElement.scrollTop;
+      const maxHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = (scrolled / maxHeight) * 100;
+      
+      setScrollProgress(progress);
+      setIsVisible(scrolled > 300);
     };
 
     window.addEventListener('scroll', toggleVisibility);
@@ -23,25 +25,75 @@ export function ScrollToTop() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: 'smooth'
     });
   };
 
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.5 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={scrollToTop}
-          className="fixed bottom-4 md:bottom-8 right-4 md:right-8 z-50 bg-consulate-blue hover:bg-consulate-blue-light text-white p-3 md:p-4 rounded-full shadow-lg transition-all duration-300"
-          aria-label="Retour en haut"
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.8, y: 20 }}
+          transition={{ 
+            type: "spring", 
+            stiffness: 300, 
+            damping: 20 
+          }}
+          className="fixed bottom-6 right-6 z-50"
         >
-          <ArrowUp className="h-5 w-5 md:h-6 md:w-6" />
-        </motion.button>
+          <motion.button
+            onClick={scrollToTop}
+            whileHover={{ 
+              scale: 1.1,
+              rotate: 5,
+              boxShadow: "0 20px 40px rgba(0, 63, 127, 0.3)"
+            }}
+            whileTap={{ scale: 0.95 }}
+            className="relative w-14 h-14 bg-gradient-to-r from-consulate-blue to-consulate-green rounded-full flex items-center justify-center shadow-lg overflow-hidden group"
+          >
+            {/* Progress Ring */}
+            <svg className="absolute inset-0 w-full h-full -rotate-90">
+              <circle
+                cx="28"
+                cy="28"
+                r="24"
+                stroke="rgba(255, 255, 255, 0.2)"
+                strokeWidth="2"
+                fill="none"
+              />
+              <motion.circle
+                cx="28"
+                cy="28"
+                r="24"
+                stroke="#FFD700"
+                strokeWidth="2"
+                fill="none"
+                strokeLinecap="round"
+                strokeDasharray={150.8}
+                strokeDashoffset={150.8 - (150.8 * scrollProgress) / 100}
+                transition={{ duration: 0.1 }}
+              />
+            </svg>
+            
+            {/* Background Glow */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-consulate-yellow/20 to-consulate-green/20 rounded-full"
+              animate={{ 
+                scale: [1, 1.2, 1],
+                opacity: [0.5, 0.8, 0.5]
+              }}
+              transition={{ 
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            
+            <ArrowUp className="h-6 w-6 text-white z-10 group-hover:text-consulate-yellow transition-colors duration-300" />
+          </motion.button>
+        </motion.div>
       )}
     </AnimatePresence>
   );

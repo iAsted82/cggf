@@ -215,14 +215,45 @@ export function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -8 }}
+              whileHover={{ 
+                y: -12,
+                rotateY: 5,
+                scale: 1.02
+              }}
               className="h-full"
             >
               <Link href={service.href}>
-                <Card className="h-full card-hover border-0 shadow-md hover:shadow-xl transition-all duration-300 bg-white">
+                <Card className="h-full card-hover border-0 shadow-md hover:shadow-2xl transition-all duration-500 bg-white relative overflow-hidden group">
+                  {/* Gradient overlay on hover */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-br from-consulate-blue/5 to-consulate-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    initial={false}
+                  />
                   <CardHeader className="text-center pb-4">
-                    <div className="mx-auto mb-4 w-16 h-16 bg-gradient-to-br from-consulate-blue to-consulate-green rounded-full flex items-center justify-center">
+                    <motion.div 
+                      className="mx-auto mb-4 w-16 h-16 bg-gradient-to-br from-consulate-blue to-consulate-green rounded-full flex items-center justify-center relative"
+                      whileHover={{ 
+                        scale: 1.1,
+                        rotate: 5,
+                        boxShadow: "0 10px 25px rgba(0, 63, 127, 0.3)"
+                      }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {/* Pulse effect */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-br from-consulate-yellow/30 to-consulate-green/30 rounded-full"
+                        animate={{
+                          scale: [1, 1.2, 1],
+                          opacity: [0.5, 0, 0.5]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      />
                       <service.icon className="h-8 w-8 text-white" />
-                    </div>
+                    </motion.div>
                     <CardTitle className="text-xl font-semibold text-consulate-blue">
                       {service.title}
                     </CardTitle>
@@ -245,13 +276,25 @@ export function ServicesSection() {
           className="text-center mt-12"
         >
           <Link href="/services-publics">
-            <motion.button
+            <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-consulate-blue hover:bg-consulate-blue-light text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg"
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              Voir tous nos services
-            </motion.button>
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-consulate-blue to-consulate-blue-light hover:from-consulate-blue-light hover:to-consulate-blue text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-500 shadow-lg hover:shadow-2xl relative overflow-hidden group"
+              >
+                {/* Animated background */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-consulate-yellow/20 to-consulate-green/20"
+                  initial={{ x: '-100%' }}
+                  whileHover={{ x: '100%' }}
+                  transition={{ duration: 0.6 }}
+                />
+                Voir tous nos services
+              </Button>
+            </motion.div>
           </Link>
         </motion.div>
       </div>
