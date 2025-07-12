@@ -215,6 +215,11 @@ export function VideoGallery() {
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       className="w-14 h-14 md:w-16 md:h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-consulate-yellow group-hover:text-black"
+                     onClick={() => {
+                       // Handler pour lecture vidéo
+                       console.log(`Lecture de la vidéo: ${video.title}`);
+                       // Ici vous pouvez ajouter la logique de lecture vidéo
+                     }}
                     >
                       <Play className="h-6 w-6 md:h-8 md:w-8 text-white group-hover:text-black ml-1" />
                     </motion.div>
