@@ -248,13 +248,15 @@ export function NavigationBar() {
                       )}
                     </div>
                   ))}
-                  <div className="px-4 py-2 mt-4 border-t border-border">
-                <div className="mt-6 pt-4 border-t border-gray-100 text-center">
-                      <Button className="w-full modern-button text-white font-semibold py-3">
-                    <Button className="bg-consulate-yellow hover:bg-yellow-500 text-black font-semibold px-8 py-2 rounded-lg">
-                      Nous Contacter
-                    </Button>
-                  </Link>
+                </div>
+                <div className="px-4 py-2 mt-4 border-t border-border">
+                  <div className="mt-6 pt-4 border-t border-gray-100 text-center">
+                    <Link href="/contact">
+                      <Button className="bg-consulate-yellow hover:bg-yellow-500 text-black font-semibold px-8 py-2 rounded-lg">
+                        Nous Contacter
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             )}
