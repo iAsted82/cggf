@@ -1,8 +1,7 @@
 "use client";
 
 import React from 'react';
-import { HeroSection } from '@/components/home/HeroSection';
-import { ThreeColumnSection } from '@/components/home/ThreeColumnSection';
+import { HorizontalLayoutSection } from '@/components/home/HorizontalLayoutSection';
 import { ServicesSection } from '@/components/home/ServicesSection';
 import { DigitalCardSection } from '@/components/home/DigitalCardSection';
 import { EventsSection } from '@/components/home/EventsSection';
@@ -12,8 +11,7 @@ import { VideoGallery } from '@/components/home/VideoGallery';
 export default function Home() {
   return (
     <div className="min-h-screen">
-      <HeroSection />
-      <ThreeColumnSection />
+      <HorizontalLayoutSection />
       <ServicesSection />
       <DigitalCardSection />
       <VideoGallery />
