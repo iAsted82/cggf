@@ -121,7 +121,7 @@ export function NavigationBar() {
             <button
               onClick={toggleMenu}
               className="p-2 text-primary hover:text-accent transition-colors duration-300 rounded-lg hover:bg-secondary/50"
-              aria-label="Menu"
+              aria-label="Toggle Menu"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -151,6 +151,7 @@ export function NavigationBar() {
                         <button
                           onClick={() => handleMobileDropdownToggle(item.label)}
                           className="ml-4 mt-2 border-l-2 border-border pl-4"
+                          aria-label={`Toggle ${item.label} submenu`}
                         >
                           <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${
                             activeDropdown === item.label ? 'rotate-180' : ''
@@ -163,13 +164,14 @@ export function NavigationBar() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="ml-4 mt-2 border-l-2 border-gray-100 pl-4"
+                        transition={{ duration: 0.2 }}
+                        className="ml-4 mt-2 border-l-2 border-border pl-4"
                       >
                         {item.items?.map((subItem) => (
                           <Link
                             key={subItem.label}
                             href={subItem.href}
-                            className="block px-4 py-2 text-sm text-gray-600 hover:text-consulate-blue hover:bg-gray-50 transition-colors duration-200 rounded"
+                            className="block px-4 py-2 text-sm text-muted-foreground hover:text-accent hover:bg-secondary/50 transition-colors duration-200 rounded"
                             onClick={() => setIsMenuOpen(false)}
                           >
                             {subItem.label}
@@ -179,7 +181,7 @@ export function NavigationBar() {
                     )}
                   </div>
                 ))}
-                <div className="px-4 py-2 mt-4 border-t border-gray-100">
+                <div className="px-4 py-2 mt-4 border-t border-border">
                   <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
                     <Button className="w-full bg-consulate-yellow hover:bg-yellow-500 text-black font-semibold py-3 rounded-lg">
                       Nous Contacter

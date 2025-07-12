@@ -1,14 +1,28 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  reactStrictMode: true,
+  swcMinify: true,
+  transpilePackages: ['framer-motion'],
   eslint: {
     ignoreDuringBuilds: true,
   },
   images: { unoptimized: true },
   webpack: (config, { dev }) => {
-    // Disable webpack cache in development if needed
-    // Uncomment the next line if you experience persistent cache issues
-    // if (dev) config.cache = false;
+    // Fix for Framer Motion issues
+    if (dev) {
+      config.cache = false;
+    }
+    
+    // Optimize bundle splitting
+    config.optimization = {
+      ...config.optimization,
+      splitChunks: {
+        ...config.optimization.splitChunks,
+        chunks: 'all',
+      }
+    };
+    
     return config;
   },
 };
