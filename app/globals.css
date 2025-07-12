@@ -248,6 +248,7 @@
     transform: translateY(0);
   }
 }
+
 @layer utilities {
   .glassmorphism {
     background: rgba(255, 255, 255, 0.15);
@@ -287,6 +288,25 @@
   0%, 100% { transform: translateX(0) translateY(0) scale(1); }
   50% { transform: translateX(-20px) translateY(-10px) scale(1.05); }
 }
+
+.hero-bg {
+  background: linear-gradient(135deg, #003F7F 0%, #0056b3 50%, #009E49 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .card-hover {
   transition: all 0.3s ease;
 }
@@ -401,4 +421,37 @@
 .focus-visible\:ring-premium:focus-visible {
   outline: none;
   box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.5);
+}
+
+/* Animation utilities */
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
