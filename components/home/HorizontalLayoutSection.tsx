@@ -199,9 +199,9 @@ export function HorizontalLayoutSection() {
 
         {/* Tablet Layout - ALIGNEMENT HORIZONTAL OPTIMISÉ (768px - 1023px) */}
         <div className="hidden md:block lg:hidden w-[90%] mx-auto px-6">
-          <div className="grid grid-cols-12 gap-8 items-center min-h-[70vh]">
+          <div className="grid grid-cols-12 gap-6 items-center min-h-[70vh]">
             {/* Vidéo à gauche - 4 colonnes */}
-            <div className="col-span-4 flex justify-start">
+            <div className="col-span-6 flex justify-center">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -222,14 +222,13 @@ export function HorizontalLayoutSection() {
               </motion.div>
             </div>
 
-            {/* Texte à droite - 8 colonnes */}
-            <div className="col-span-8">
+            {/* Texte à droite - 6 colonnes */}
+            <div className="col-span-6">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 className="space-y-6 h-full flex flex-col justify-center"
-                style={{ marginLeft: '20px' }}
               >
                 <div className="space-y-4">
                   <h2 className="text-4xl font-bold text-consulate-blue leading-tight">
@@ -283,9 +282,9 @@ export function HorizontalLayoutSection() {
 
         {/* Desktop Layout (min-width: 1024px) */}
         <div className="hidden lg:block max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[80vh]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[80vh]">
             {/* Vidéo à gauche */}
-            <div className="lg:col-span-5 xl:col-span-4 flex justify-start">
+            <div className="lg:col-span-6 flex justify-center">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -307,13 +306,12 @@ export function HorizontalLayoutSection() {
             </div>
 
             {/* Texte à droite */}
-            <div className="lg:col-span-7 xl:col-span-8">
+            <div className="lg:col-span-6">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 className="space-y-8 h-full flex flex-col justify-center"
-                style={{ marginLeft: '20px' }}
               >
                 <div className="space-y-6">
                   <h2 className="text-5xl xl:text-6xl font-bold text-consulate-blue leading-tight">
