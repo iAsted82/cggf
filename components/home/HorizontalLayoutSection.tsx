@@ -88,13 +88,36 @@ export function HorizontalLayoutSection() {
         {/* Tablet Layout - ALIGNEMENT HORIZONTAL OPTIMISÉ (768px - 1023px) */}
         <div className="hidden md:block lg:hidden w-[90%] mx-auto px-6">
           <div className="grid grid-cols-12 gap-8 items-center min-h-[70vh]">
-            {/* Texte à gauche - 8 colonnes */}
+            {/* Vidéo à gauche - 4 colonnes */}
+            <div className="col-span-4 flex justify-start">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="w-full max-w-sm"
+              >
+                <div className="relative w-full aspect-[9/16] h-full bg-gradient-to-br from-consulate-blue to-consulate-green rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                    <div className="text-center text-white">
+                      <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto backdrop-blur-sm hover:bg-white/30 transition-colors duration-300 cursor-pointer">
+                        <Play className="h-7 w-7 text-white" />
+                      </div>
+                      <p className="text-lg font-semibold">Services Consulaires</p>
+                      <p className="text-sm opacity-90">Découvrez nos services</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Texte à droite - 8 colonnes */}
             <div className="col-span-8">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
-                className="space-y-6"
+                className="space-y-6 h-full flex flex-col justify-center"
+                style={{ marginLeft: '20px' }}
               >
                 <div className="space-y-4">
                   <h2 className="text-4xl font-bold text-consulate-blue leading-tight">
@@ -143,54 +166,42 @@ export function HorizontalLayoutSection() {
                 </div>
               </motion.div>
             </div>
-
-            {/* Vidéo à droite - 4 colonnes avec marge */}
-            <div className="col-span-4 flex justify-end">
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="w-full max-w-sm"
-                style={{ marginLeft: '20px' }}
-              >
-                <div className="relative w-full aspect-[9/16] max-h-[400px] bg-gradient-to-br from-consulate-blue to-consulate-green rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                    <div className="text-center text-white">
-                      <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto backdrop-blur-sm hover:bg-white/30 transition-colors duration-300 cursor-pointer">
-                        <Play className="h-7 w-7 text-white" />
-                      </div>
-                      <p className="text-lg font-semibold">Services Consulaires</p>
-                      <p className="text-sm opacity-90">Découvrez nos services</p>
-                    </div>
-                  </div>
-                  {/* Video element - remplacez le src par votre vraie vidéo */}
-                  {/* 
-                  <video 
-                    className="w-full h-full object-cover"
-                    controls
-                    muted
-                    poster="/path-to-poster-image.jpg"
-                  >
-                    <source src="/path-to-video.mp4" type="video/mp4" />
-                    Votre navigateur ne supporte pas les vidéos HTML5.
-                  </video>
-                  */}
-                </div>
-              </motion.div>
-            </div>
           </div>
         </div>
 
         {/* Desktop Layout (min-width: 1024px) */}
         <div className="hidden lg:block max-w-7xl mx-auto px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[80vh]">
-            {/* Texte à gauche */}
+            {/* Vidéo à gauche */}
+            <div className="lg:col-span-5 xl:col-span-4 flex justify-start">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="w-full max-w-sm lg:max-w-xs xl:max-w-sm"
+              >
+                <div className="relative w-full aspect-[9/16] h-full bg-gradient-to-br from-consulate-blue to-consulate-green rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                    <div className="text-center text-white">
+                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto backdrop-blur-sm hover:bg-white/30 transition-colors duration-300 cursor-pointer">
+                        <Play className="h-8 w-8 text-white" />
+                      </div>
+                      <p className="text-lg font-semibold">Services Consulaires</p>
+                      <p className="text-sm opacity-90">Découvrez nos services</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Texte à droite */}
             <div className="lg:col-span-7 xl:col-span-8">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
-                className="space-y-8"
+                className="space-y-8 h-full flex flex-col justify-center"
+                style={{ marginLeft: '20px' }}
               >
                 <div className="space-y-6">
                   <h2 className="text-5xl xl:text-6xl font-bold text-consulate-blue leading-tight">
@@ -236,29 +247,6 @@ export function HorizontalLayoutSection() {
                       Nos services
                     </Button>
                   </Link>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Vidéo à droite */}
-            <div className="lg:col-span-5 xl:col-span-4 flex justify-center lg:justify-end">
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="w-full max-w-sm lg:max-w-xs xl:max-w-sm"
-                style={{ marginLeft: '20px' }}
-              >
-                <div className="relative w-full aspect-[9/16] max-h-[400px] bg-gradient-to-br from-consulate-blue to-consulate-green rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                    <div className="text-center text-white">
-                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto backdrop-blur-sm hover:bg-white/30 transition-colors duration-300 cursor-pointer">
-                        <Play className="h-8 w-8 text-white" />
-                      </div>
-                      <p className="text-lg font-semibold">Services Consulaires</p>
-                      <p className="text-sm opacity-90">Découvrez nos services</p>
-                    </div>
-                  </div>
                 </div>
               </motion.div>
             </div>
