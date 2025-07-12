@@ -94,9 +94,9 @@ export function DigitalCardSection() {
             <div>
               <h2 className="text-2xl font-bold text-consulate-blue mb-3">
                 Votre Carte Consulaire
-                <span className="block text-consulate-yellow">Digitale</span>
+                <span className="block text-yellow-600 font-bold">Digitale</span>
               </h2>
-              <p className="text-base text-gray-600 leading-relaxed">
+              <p className="text-base text-gray-700 leading-[1.7] font-medium">
                 Révolutionnez votre expérience consulaire avec notre nouvelle carte digitale.
               </p>
             </div>
@@ -114,10 +114,10 @@ export function DigitalCardSection() {
                     <advantage.icon className="h-4 w-4 text-consulate-blue" />
                   </div>
                   <div className="text-left">
-                    <h3 className="font-semibold text-consulate-blue text-sm">
+                    <h3 className="font-bold text-gray-900 text-sm">
                       {advantage.title}
                     </h3>
-                    <p className="text-xs text-gray-600">
+                    <p className="text-xs text-gray-700 font-medium">
                       {advantage.description}
                     </p>
                   </div>
@@ -131,10 +131,7 @@ export function DigitalCardSection() {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <Link href="/services-publics/inscription">
-                <Button 
-                  size="lg" 
-                  className="w-full bg-consulate-yellow hover:bg-yellow-500 text-black font-semibold px-6 py-4 rounded-xl text-base transition-all duration-300 transform active:scale-95 shadow-lg"
-                >
+                <Button className="w-full btn-accent min-h-[52px] px-6 py-4 text-base font-bold rounded-xl transition-all duration-300 transform active:scale-95 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-yellow-400/50">
                   <CreditCard className="mr-2 h-5 w-5" />
                   Demander ma carte
                 </Button>
