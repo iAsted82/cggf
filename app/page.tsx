@@ -7,6 +7,7 @@ import { ServicesSection } from '@/components/home/ServicesSection';
 import { DigitalCardSection } from '@/components/home/DigitalCardSection';
 import { EventsSection } from '@/components/home/EventsSection';
 import { NewsSection } from '@/components/home/NewsSection';
+import { VideoGallery } from '@/components/home/VideoGallery';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <ThreeColumnSection />
       <ServicesSection />
       <DigitalCardSection />
+      <VideoGallery />
       <EventsSection />
       <NewsSection />
     </div>
