@@ -94,10 +94,10 @@ export function ModernServicesGrid() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center content-spacing mb-16 max-w-4xl mx-auto"
+          className="text-center content-spacing mb-16"
         >
           <motion.h2 
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center max-w-4xl mx-auto"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -108,7 +108,7 @@ export function ModernServicesGrid() {
           </motion.h2>
           
           <motion.p
-            className="text-lg md:text-xl leading-[1.7] text-gray-700 max-w-4xl mx-auto text-center font-medium"
+            className="text-lg md:text-xl leading-[1.7] text-gray-700 max-w-3xl mx-auto text-center font-medium"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
