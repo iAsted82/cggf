@@ -171,7 +171,7 @@ export function NavigationBar() {
                           <Link
                             key={subItem.label}
                             href={subItem.href}
-                            className="block px-4 py-2 text-sm text-muted-foreground hover:text-accent hover:bg-secondary/50 transition-colors duration-200 rounded"
+                            className="block px-4 py-2 text-sm text-gray-800 hover:text-white hover:bg-consulate-blue transition-colors duration-200 rounded font-medium focus:outline-none focus:ring-2 focus:ring-consulate-blue focus:text-white focus:bg-consulate-blue"
                             onClick={() => setIsMenuOpen(false)}
                           >
                             {subItem.label}
@@ -240,7 +240,7 @@ export function NavigationBar() {
                             <Link
                               key={subItem.label}
                               href={subItem.href}
-                              className="block px-4 py-2 text-sm text-muted-foreground hover:text-accent hover:bg-secondary/50 transition-colors duration-200 rounded"
+                              className="block px-4 py-2 text-sm text-gray-900 hover:bg-consulate-blue hover:text-white transition-colors duration-200 font-medium focus:outline-none focus:ring-2 focus:ring-consulate-blue focus:bg-consulate-blue focus:text-white"
                               onClick={() => setIsMenuOpen(false)}
                             >
                               {subItem.label}
@@ -305,13 +305,13 @@ export function NavigationBar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-1 w-56 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-50"
+                        className="absolute top-full left-0 mt-1 w-56 bg-white rounded-md shadow-xl border border-gray-300 py-2 z-50"
                       >
                         {item.items?.map((subItem) => (
                           <Link
                             key={subItem.label}
                             href={subItem.href}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-consulate-blue transition-colors duration-200"
+                            className="block px-4 py-2 text-sm text-gray-900 hover:bg-consulate-blue hover:text-white transition-colors duration-200 font-medium focus:outline-none focus:ring-2 focus:ring-consulate-blue focus:bg-consulate-blue focus:text-white"
                           >
                             {subItem.label}
                           </Link>
