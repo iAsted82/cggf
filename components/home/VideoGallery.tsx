@@ -7,45 +7,45 @@ import { Play, ChevronLeft, ChevronRight } from 'lucide-react';
 const videoData = [
   {
     id: 1,
-    title: "Services Consulaires",
-    description: "Découvrez nos services digitalisés",
+    title: "Droits et Devoirs du Citoyen",
+    description: "Connaître vos droits en tant que ressortissant gabonais",
     thumbnail: "https://images.pexels.com/photos/6863183/pexels-photo-6863183.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop",
-    duration: "2:30"
+    duration: "3:45"
   },
   {
     id: 2,
-    title: "Message du Consul",
-    description: "Mot de bienvenue officiel",
+    title: "Procédures d'Inscription",
+    description: "Guide complet pour votre inscription consulaire",
     thumbnail: "https://images.pexels.com/photos/4226119/pexels-photo-4226119.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop",
-    duration: "3:15"
-  },
-  {
-    id: 3,
-    title: "Diaspora Gabonaise",
-    description: "Notre communauté en France",
-    thumbnail: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop",
     duration: "4:20"
   },
   {
+    id: 3,
+    title: "État Civil Expliqué",
+    description: "Tout savoir sur les actes d'état civil",
+    thumbnail: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop",
+    duration: "5:15"
+  },
+  {
     id: 4,
-    title: "Carte Consulaire",
-    description: "Nouvelle carte digitale",
+    title: "Protection Consulaire",
+    description: "Assistance et protection des ressortissants",
     thumbnail: "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop",
-    duration: "1:45"
+    duration: "6:30"
   },
   {
     id: 5,
-    title: "Événements",
-    description: "Célébrations consulaires",
+    title: "Passeport et Voyage",
+    description: "Renouvellement et demandes de passeport",
     thumbnail: "https://images.pexels.com/photos/6816072/pexels-photo-6816072.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop",
-    duration: "5:10"
+    duration: "4:55"
   },
   {
     id: 6,
-    title: "Protection Consulaire",
-    description: "Assistance aux ressortissants",
+    title: "Urgences et Assistance",
+    description: "Que faire en cas d'urgence consulaire",
     thumbnail: "https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&fit=crop",
-    duration: "3:30"
+    duration: "3:20"
   }
 ];
 
@@ -132,11 +132,12 @@ export function VideoGallery() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-consulate-blue mb-2">
-              Galerie Vidéo
+            <h2 className="text-2xl md:text-3xl font-bold text-consulate-blue mb-4">
+              Capsules Consulaires
             </h2>
-            <p className="text-base md:text-lg text-gray-600">
-              Découvrez nos services en images
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Contenus éducatifs pour sensibiliser, édifier et informer les ressortissants gabonais 
+              sur les questions consulaires, procédures administratives et leurs droits et devoirs
             </p>
           </motion.div>
         </div>
@@ -217,8 +218,8 @@ export function VideoGallery() {
                       className="w-14 h-14 md:w-16 md:h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-consulate-yellow group-hover:text-black"
                      onClick={() => {
                        // Handler pour lecture vidéo
-                       console.log(`Lecture de la vidéo: ${video.title}`);
-                       // Ici vous pouvez ajouter la logique de lecture vidéo
+                       console.log(`Lecture de la capsule consulaire: ${video.title}`);
+                       // Ouverture de la vidéo éducative en modal ou page dédiée
                      }}
                     >
                       <Play className="h-6 w-6 md:h-8 md:w-8 text-white group-hover:text-black ml-1" />
@@ -229,14 +230,14 @@ export function VideoGallery() {
                   <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
                     <div className="flex justify-between items-end mb-2">
                       <div className="flex-1">
-                        <h3 className="font-semibold text-sm md:text-base line-clamp-2 mb-1">
+                        <h3 className="font-semibold text-sm md:text-base line-clamp-2 mb-1 group-hover:text-consulate-yellow transition-colors">
                           {video.title}
                         </h3>
-                        <p className="text-xs md:text-sm text-gray-300 line-clamp-2">
+                        <p className="text-xs md:text-sm text-gray-300 line-clamp-2 leading-tight">
                           {video.description}
                         </p>
                       </div>
-                      <div className="bg-black/50 px-2 py-1 rounded text-xs font-mono ml-2">
+                      <div className="bg-black/60 px-2 py-1 rounded-md text-xs font-medium ml-2 backdrop-blur-sm">
                         {video.duration}
                       </div>
                     </div>
@@ -271,7 +272,7 @@ export function VideoGallery() {
           <div className="md:hidden text-center mt-4 text-xs text-gray-500">
             <div className="flex items-center justify-center space-x-2">
               <div className="w-8 h-0.5 bg-gray-300 rounded" />
-              <span>Glissez pour voir plus</span>
+              <span>Glissez pour découvrir nos capsules</span>
               <div className="w-8 h-0.5 bg-gray-300 rounded" />
             </div>
           </div>

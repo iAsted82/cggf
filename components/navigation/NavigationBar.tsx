@@ -8,11 +8,6 @@ import Link from 'next/link';
 
 const menuItems = [
   { 
-    label: 'Accueil', 
-    href: '/', 
-    dropdown: false 
-  },
-  { 
     label: 'Le Consulat Général', 
     href: '/consulat', 
     dropdown: true,
