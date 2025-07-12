@@ -79,7 +79,6 @@ export function NavigationBar() {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    setActiveDropdown(null); // Close any open dropdowns when toggling menu
   };
 
   const handleDropdownEnter = (label: string) => {
@@ -95,43 +94,15 @@ export function NavigationBar() {
   };
 
   const handleMobileDropdownToggle = (label: string) => {
-    if (isMobile) {
-      setActiveDropdown(activeDropdown === label ? null : label);
-    }
+    setActiveDropdown(activeDropdown === label ? null : label);
   };
-
-  // Close menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (isMenuOpen && !(event.target as Element).closest('.navigation-container')) {
-        setIsMenuOpen(false);
-        setActiveDropdown(null);
-      }
-    };
-
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  }, [isMenuOpen]);
-
-  // Prevent scroll when mobile menu is open
-  useEffect(() => {
-    if (isMenuOpen && isMobile) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isMenuOpen, isMobile]);
 
   return (
     <motion.nav 
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 }}
-      className="nav-glass sticky top-0 z-50 transition-all duration-300 navigation-container"
+      className="nav-glass sticky top-0 z-50 transition-all duration-300"
     >
       <div className="w-full">
         {/* Mobile Layout (max-width: 767px) */}
@@ -171,7 +142,7 @@ export function NavigationBar() {
                     <div className="flex items-center justify-between">
                       <Link
                         href={item.href}
-                        className="block px-4 py-3 text-foreground hover:text-accent hover:bg-secondary/50 transition-colors duration-200 rounded-lg flex-1 text-sm"
+                        className="block px-4 py-3 text-foreground hover:text-accent hover:bg-secondary/50 transition-colors duration-200 rounded-lg flex-1"
                         onClick={() => !item.dropdown && setIsMenuOpen(false)}
                       >
                         {item.label}
@@ -179,7 +150,7 @@ export function NavigationBar() {
                       {item.dropdown && (
                         <button
                           onClick={() => handleMobileDropdownToggle(item.label)}
-                          className="ml-4 mt-2 border-l-2 border-border pl-4 transition-transform duration-200"
+                          className="ml-4 mt-2 border-l-2 border-border pl-4"
                         >
                           <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${
                             activeDropdown === item.label ? 'rotate-180' : ''
@@ -191,7 +162,7 @@ export function NavigationBar() {
                       <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
-                        transition={{ duration: 0.2 }}
+                        exit={{ opacity: 0, height: 0 }}
                         className="ml-4 mt-2 border-l-2 border-gray-100 pl-4"
                       >
                         {item.items?.map((subItem) => (
@@ -208,7 +179,7 @@ export function NavigationBar() {
                     )}
                   </div>
                 ))}
-                <div className="px-4 py-2 mt-4 border-t border-border">
+                <div className="px-4 py-2 mt-4 border-t border-gray-100">
                   <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
                     <Button className="w-full bg-consulate-yellow hover:bg-yellow-500 text-black font-semibold py-3 rounded-lg">
                       Nous Contacter
@@ -235,7 +206,7 @@ export function NavigationBar() {
 
             <button
               onClick={toggleMenu}
-              className="text-gray-700 hover:text-consulate-blue transition-colors duration-300 p-2 rounded-lg hover:bg-gray-100 md:hover:bg-secondary/50"
+              className="text-gray-700 hover:text-consulate-blue transition-colors duration-300 p-2 rounded-lg hover:bg-gray-100"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -247,7 +218,7 @@ export function NavigationBar() {
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0, transition: { duration: 0.2 } }}
+                exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3 }}
                 className="bg-white border-t border-gray-200 mt-4 pt-4 rounded-b-lg shadow-lg"
               >
@@ -256,7 +227,7 @@ export function NavigationBar() {
                     <div key={item.label} className="space-y-2">
                       <Link
                         href={item.href}
-                        className="block px-4 py-2 text-gray-700 hover:text-consulate-blue hover:bg-secondary/50 transition-colors duration-200 rounded-lg font-medium"
+                        className="block px-4 py-2 text-gray-700 hover:text-consulate-blue hover:bg-gray-50 transition-colors duration-200 rounded-lg font-medium"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {item.label}
@@ -267,7 +238,7 @@ export function NavigationBar() {
                             <Link
                               key={subItem.label}
                               href={subItem.href}
-                              className="block px-4 py-2 text-sm text-muted-foreground hover:text-accent hover:bg-secondary/50 transition-colors duration-200 rounded-md"
+                              className="block px-4 py-2 text-sm text-muted-foreground hover:text-accent hover:bg-secondary/50 transition-colors duration-200 rounded"
                               onClick={() => setIsMenuOpen(false)}
                             >
                               {subItem.label}
@@ -278,7 +249,7 @@ export function NavigationBar() {
                     </div>
                   ))}
                 </div>
-                <div className="px-4 py-4 mt-4 border-t border-border">
+                <div className="px-4 py-2 mt-4 border-t border-border">
                   <div className="mt-6 pt-4 border-t border-gray-100 text-center">
                     <Link href="/contact">
                       <Button className="bg-consulate-yellow hover:bg-yellow-500 text-black font-semibold px-8 py-2 rounded-lg">
@@ -315,7 +286,7 @@ export function NavigationBar() {
                 >
                   <Link
                     href={item.href}
-                    className="flex items-center space-x-1 text-gray-700 hover:text-consulate-blue transition-colors duration-300 py-2 px-3 rounded-md hover:bg-gray-50 whitespace-nowrap text-sm font-medium"
+                    className="flex items-center space-x-1 text-gray-700 hover:text-consulate-blue transition-colors duration-300 py-1 px-2 rounded-md hover:bg-gray-50 whitespace-nowrap"
                   >
                     <span className="font-medium text-sm">{item.label}</span>
                     {item.dropdown && (
@@ -330,7 +301,7 @@ export function NavigationBar() {
                       <motion.div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10, transition: { duration: 0.15 } }}
+                        exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2 }}
                         className="absolute top-full left-0 mt-1 w-56 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-50"
                       >
