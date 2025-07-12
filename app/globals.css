@@ -172,6 +172,7 @@
   .btn-accent {
     @apply modern-button bg-gradient-to-r from-yellow-500 to-yellow-600 text-black;
     focus-ring-color: rgb(234 179 8 / 0.5);
+  }
 
   /* Navigation Styles */
   .nav-glass {
@@ -380,6 +381,7 @@
 @keyframes gradientFlow {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
+}
 
 /* Floating Animation */
 .floating {
