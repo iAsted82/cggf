@@ -8,9 +8,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play, Shield, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useAdaptiveComponent } from '@/contexts/AdaptiveUIContext';
+import { AdaptiveTooltip } from '@/components/adaptive/AdaptiveTooltip';
 import Link from 'next/link';
 
 export function ModernHeroSection() {
+  const { shouldShowGuidance, shouldAnimate, track, userProfile } = useAdaptiveComponent();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center modern-hero">
       {/* Content */}
@@ -21,14 +25,14 @@ export function ModernHeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: shouldAnimate ? 0.8 : 0.3 }}
               className="space-y-8"
             >
               {/* Badge */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                transition={{ duration: shouldAnimate ? 0.6 : 0.2, delay: shouldAnimate ? 0.2 : 0 }}
                 className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glassmorphism text-white text-sm font-medium"
               >
                 <Shield className="h-4 w-4" />
@@ -39,8 +43,10 @@ export function ModernHeroSection() {
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight"
+                transition={{ duration: shouldAnimate ? 0.8 : 0.3, delay: shouldAnimate ? 0.4 : 0 }}
+                className={`${
+                  userProfile === 'novice' ? 'text-3xl md:text-4xl lg:text-5xl' : 'text-4xl md:text-5xl lg:text-6xl xl:text-7xl'
+                } font-bold text-white leading-[1.1] tracking-tight`}
               >
                 Excellence
                 <span className="block font-semibold text-white">
@@ -55,45 +61,72 @@ export function ModernHeroSection() {
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-lg md:text-xl leading-[1.7] text-white max-w-2xl font-medium"
+                transition={{ duration: shouldAnimate ? 0.8 : 0.3, delay: shouldAnimate ? 0.6 : 0 }}
+                className={`${
+                  userProfile === 'novice' ? 'text-base md:text-lg' : 'text-lg md:text-xl'
+                } leading-[1.7] text-white max-w-2xl font-medium`}
                 style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}
               >
-                Une expérience consulaire repensée pour la diaspora gabonaise en France. 
-                Services digitaux, procédures simplifiées, accompagnement personnalisé.
+                {userProfile === 'novice' 
+                  ? 'Vos services consulaires simplifiés et modernes. Inscription, documents, assistance - tout en quelques clics.'
+                  : 'Une expérience consulaire repensée pour la diaspora gabonaise en France. Services digitaux, procédures simplifiées, accompagnement personnalisé.'
+                }
               </motion.p>
 
               {/* CTA Buttons */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
+                transition={{ duration: shouldAnimate ? 0.8 : 0.3, delay: shouldAnimate ? 0.8 : 0 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <Link href="/services-publics/inscription">
-                  <Button className="btn-accent min-h-[56px] px-8 py-4 text-lg font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:scale-105 focus:outline-none focus:ring-4 focus:ring-yellow-400/50 group">
-                    Commencer maintenant
-                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </Link>
-                <Link href="/services-publics">
-                  <Button 
-                    className="btn-secondary min-h-[56px] px-8 py-4 text-lg font-semibold rounded-xl bg-white/10 border-2 border-white text-white backdrop-blur-sm hover:bg-white/20 hover:border-white transition-all duration-300 transform hover:scale-105 focus:scale-105 focus:outline-none focus:ring-4 focus:ring-white/50"
-                  >
-                    Découvrir nos services
-                  </Button>
-                </Link>
+                <AdaptiveTooltip
+                  content="Commencez votre inscription consulaire en quelques minutes"
+                  feature="hero_cta_primary"
+                  priority="high"
+                >
+                  <Link href="/services-publics/inscription">
+                    <Button 
+                      className="btn-accent min-h-[56px] px-8 py-4 text-lg font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:scale-105 focus:outline-none focus:ring-4 focus:ring-yellow-400/50 group"
+                      onClick={() => track('hero_cta_click', { button: 'primary', userProfile })}
+                      data-feature="hero_cta_primary"
+                    >
+                      {userProfile === 'novice' ? 'Commencer' : 'Commencer maintenant'}
+                      <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </Link>
+                </AdaptiveTooltip>
+                
+                <AdaptiveTooltip
+                  content="Explorez tous nos services consulaires disponibles"
+                  feature="hero_cta_secondary"
+                  priority="medium"
+                >
+                  <Link href="/services-publics">
+                    <Button 
+                      className="btn-secondary min-h-[56px] px-8 py-4 text-lg font-semibold rounded-xl bg-white/10 border-2 border-white text-white backdrop-blur-sm hover:bg-white/20 hover:border-white transition-all duration-300 transform hover:scale-105 focus:scale-105 focus:outline-none focus:ring-4 focus:ring-white/50"
+                      onClick={() => track('hero_cta_click', { button: 'secondary', userProfile })}
+                      data-feature="hero_cta_secondary"
+                    >
+                      {userProfile === 'novice' ? 'Voir les services' : 'Découvrir nos services'}
+                    </Button>
+                  </Link>
+                </AdaptiveTooltip>
               </motion.div>
 
               {/* Stats */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1 }}
-                className="grid grid-cols-3 gap-8 pt-8 border-t border-white/30"
+                transition={{ duration: shouldAnimate ? 0.8 : 0.3, delay: shouldAnimate ? 1 : 0 }}
+                className={`grid grid-cols-3 gap-8 pt-8 border-t border-white/30 ${
+                  userProfile === 'novice' ? 'hidden sm:grid' : ''
+                }`}
               >
                 <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-white mb-1" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>15K+</div>
+                  <div className="text-2xl md:text-3xl font-bold text-white mb-1" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
+                    {userProfile === 'novice' ? '15K' : '15K+'}
+                  </div>
                   <div className="text-sm text-white font-medium" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>Ressortissants</div>
                 </div>
                 <div className="text-center">
@@ -113,7 +146,7 @@ export function ModernHeroSection() {
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              transition={{ duration: shouldAnimate ? 0.8 : 0.3, delay: shouldAnimate ? 0.5 : 0 }}
               className="relative w-full max-w-md"
             >
               <div className="relative aspect-[9/16] bg-gradient-to-br from-white/10 to-white/5 rounded-2xl backdrop-blur-sm border border-white/20 overflow-hidden">
@@ -124,6 +157,8 @@ export function ModernHeroSection() {
                       className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto backdrop-blur-sm cursor-pointer"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
+                      onClick={() => track('hero_video_click', { userProfile })}
+                      data-feature="hero_video"
                     >
                       <Play className="h-8 w-8 text-white ml-1" />
                     </motion.div>
@@ -141,8 +176,10 @@ export function ModernHeroSection() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.2 }}
-                className="absolute -bottom-4 -left-4 bg-white rounded-xl p-4 shadow-2xl"
+                transition={{ duration: shouldAnimate ? 0.8 : 0.3, delay: shouldAnimate ? 1.2 : 0 }}
+                className={`absolute -bottom-4 -left-4 bg-white rounded-xl p-4 shadow-2xl ${
+                  userProfile === 'novice' ? 'hidden sm:block' : ''
+                }`}
               >
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center">
@@ -163,17 +200,19 @@ export function ModernHeroSection() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        transition={{ duration: shouldAnimate ? 0.8 : 0.3, delay: shouldAnimate ? 1.5 : 0 }}
+        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 ${
+          userProfile === 'novice' ? 'hidden' : ''
+        }`}
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          animate={shouldAnimate ? { y: [0, 10, 0] } : {}}
+          transition={shouldAnimate ? { duration: 2, repeat: Infinity } : {}}
           className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center"
         >
           <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
+            animate={shouldAnimate ? { y: [0, 12, 0] } : {}}
+            transition={shouldAnimate ? { duration: 2, repeat: Infinity } : {}}
             className="w-1 h-3 bg-white/60 rounded-full mt-2"
           />
         </motion.div>

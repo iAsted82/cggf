@@ -1,13 +1,15 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { NavigationBar } from '@/components/navigation/NavigationBar';
+import { AdaptiveNavigationBar } from '@/components/navigation/AdaptiveNavigationBar';
 import { HeaderTop } from '@/components/navigation/HeaderTop';
 import { SecondaryNav } from '@/components/navigation/SecondaryNav';
 import { Footer } from '@/components/layout/Footer';
 import { ScrollToTop } from '@/components/ui/ScrollToTop';
 import { FloatingParticles } from '@/components/ui/FloatingParticles';
 import { PageTransition } from '@/components/ui/PageTransition';
+import { AdaptiveUIProvider } from '@/contexts/AdaptiveUIContext';
+import { AdaptiveBehaviorTracker } from '@/components/adaptive/AdaptiveBehaviorTracker';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -63,17 +65,20 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#003F7F" />
       </head>
       <body className={inter.className}>
-        <FloatingParticles />
-        <HeaderTop />
-        <NavigationBar />
-        <SecondaryNav />
-        <main className="min-h-screen">
-          <PageTransition>
-            {children}
-          </PageTransition>
-        </main>
-        <Footer />
-        <ScrollToTop />
+        <AdaptiveUIProvider>
+          <FloatingParticles />
+          <HeaderTop />
+          <AdaptiveNavigationBar />
+          <SecondaryNav />
+          <main className="min-h-screen">
+            <PageTransition>
+              {children}
+            </PageTransition>
+          </main>
+          <Footer />
+          <ScrollToTop />
+          <AdaptiveBehaviorTracker />
+        </AdaptiveUIProvider>
       </body>
     </html>
   );
