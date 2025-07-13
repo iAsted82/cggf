@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { ConsularErrorBoundary } from '@/components/error/ConsularErrorBoundary';
 import { ModernHeroSection } from '@/components/home/ModernHeroSection';
 import { ModernServicesGrid } from '@/components/home/ModernServicesGrid';
 import { HorizontalLayoutSection } from '@/components/home/HorizontalLayoutSection';
@@ -11,14 +12,36 @@ import { VideoGallery } from '@/components/home/VideoGallery';
 
 export default function Home() {
   return (
+    <ConsularErrorBoundary level="critical">
     <div className="min-h-screen">
-      <ModernHeroSection />
-      <ModernServicesGrid />
-      <HorizontalLayoutSection />
-      <DigitalCardSection />
-      <VideoGallery />
-      <EventsSection />
-      <NewsSection />
+        <ConsularErrorBoundary level="section">
+          <ModernHeroSection />
+        </ConsularErrorBoundary>
+        
+        <ConsularErrorBoundary level="section">
+          <ModernServicesGrid />
+        </ConsularErrorBoundary>
+        
+        <ConsularErrorBoundary level="section">
+          <HorizontalLayoutSection />
+        </ConsularErrorBoundary>
+        
+        <ConsularErrorBoundary level="section">
+          <DigitalCardSection />
+        </ConsularErrorBoundary>
+        
+        <ConsularErrorBoundary level="section">
+          <VideoGallery />
+        </ConsularErrorBoundary>
+        
+        <ConsularErrorBoundary level="section">
+          <EventsSection />
+        </ConsularErrorBoundary>
+        
+        <ConsularErrorBoundary level="section">
+          <NewsSection />
+        </ConsularErrorBoundary>
     </div>
+    </ConsularErrorBoundary>
   );
 }
