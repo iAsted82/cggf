@@ -79,8 +79,8 @@ export function AdaptiveBehaviorTracker() {
 
     // Tracking des hovers
     const handleMouseEnter = (e: MouseEvent) => {
-      const element = e.target as HTMLElement;
-      if (element.dataset.feature) {
+      const element = e.target;
+      if (element instanceof HTMLElement && element.dataset.feature) {
         const hoverStart = Date.now();
         
         const handleMouseLeave = () => {
